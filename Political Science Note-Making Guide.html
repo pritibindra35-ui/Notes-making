@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Political Science Note-Making Guide - Class 11th</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #64748b;
+            --accent-color: #f59e0b;
+            --success-color: #10b981;
+            --danger-color: #ef4444;
+            --light-bg: #f8fafc;
+            --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #334155;
+            background-color: var(--light-bg);
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-color), #1e40af);
+            color: white;
+            padding: 4rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="%23ffffff08" points="0,0 1000,300 1000,1000 0,700"/></svg>');
+            background-size: cover;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--card-shadow);
+            border: 1px solid #e2e8f0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .section-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .technique-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--primary-color);
+            box-shadow: var(--card-shadow);
+            transition: all 0.3s ease;
+        }
+
+        .technique-card:hover {
+            border-left-color: var(--accent-color);
+            transform: translateX(8px);
+        }
+
+        .template-box {
+            background: #f1f5f9;
+            border: 2px dashed var(--secondary-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            position: relative;
+        }
+
+        .template-box::before {
+            content: 'Template';
+            position: absolute;
+            top: -12px;
+            left: 16px;
+            background: var(--accent-color);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .example-box {
+            background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+            border: 1px solid var(--success-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            position: relative;
+        }
+
+        .example-box::before {
+            content: 'Example';
+            position: absolute;
+            top: -12px;
+            left: 16px;
+            background: var(--success-color);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .tip-box {
+            background: linear-gradient(135deg, #fef3c7, #fde68a);
+            border: 1px solid var(--accent-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            position: relative;
+        }
+
+        .tip-box::before {
+            content: '💡 Pro Tip';
+            position: absolute;
+            top: -12px;
+            left: 16px;
+            background: var(--accent-color);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .nav-pills .nav-link {
+            border-radius: 25px;
+            margin: 0 0.25rem;
+            padding: 0.75rem 1.5rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .nav-pills .nav-link.active {
+            background-color: var(--primary-color);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        }
+
+        .accordion-button {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .accordion-button:not(.collapsed) {
+            background-color: var(--light-bg);
+            color: var(--primary-color);
+        }
+
+        .progress-indicator {
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            border-radius: 2px;
+            margin-bottom: 2rem;
+        }
+
+        .icon-circle {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin: 0 auto 1rem;
+        }
+
+        .icon-circle.primary { background: linear-gradient(135deg, var(--primary-color), #1e40af); color: white; }
+        .icon-circle.success { background: linear-gradient(135deg, var(--success-color), #059669); color: white; }
+        .icon-circle.warning { background: linear-gradient(135deg, var(--accent-color), #d97706); color: white; }
+
+        @media (max-width: 768px) {
+            .hero-section { padding: 2rem 0; }
+            .section-card { padding: 1.5rem; }
+            .technique-card { padding: 1rem; }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content text-center">
+                <h1 class="display-4 fw-bold mb-4">
+                    <i class="fas fa-graduation-cap me-3"></i>
+                    Political Science Note-Making Guide
+                </h1>
+                <p class="lead mb-4">Master the Art of Effective Note-Taking for Class 11th Political Science</p>
+                <div class="progress-indicator mx-auto" style="width: 200px;"></div>
+                <p class="mb-0">Transform your study sessions with proven techniques and strategies</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container my-5">
+        <!-- Navigation Pills -->
+        <ul class="nav nav-pills justify-content-center mb-5" id="mainTabs">
+            <li class="nav-item">
+                <a class="nav-link active" data-bs-toggle="pill" href="#overview">
+                    <i class="fas fa-home me-2"></i>Overview
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="pill" href="#techniques">
+                    <i class="fas fa-tools me-2"></i>Techniques
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="pill" href="#templates">
+                    <i class="fas fa-file-alt me-2"></i>Templates
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="pill" href="#examples">
+                    <i class="fas fa-lightbulb me-2"></i>Examples
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="pill" href="#revision">
+                    <i class="fas fa-sync-alt me-2"></i>Revision
+                </a>
+            </li>
+        </ul>
+
+        <!-- Tab Content -->
+        <div class="tab-content">
+            <!-- Overview Tab -->
+            <div class="tab-pane fade show active" id="overview">
+                <div class="section-card fade-in">
+                    <div class="text-center mb-4">
+                        <div class="icon-circle primary">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <h2 class="fw-bold">Why Effective Note-Making Matters</h2>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <h4><i class="fas fa-check-circle text-success me-2"></i>Benefits of Good Notes</h4>
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><i class="fas fa-arrow-right text-primary me-2"></i>Better understanding of complex concepts</li>
+                                <li class="mb-2"><i class="fas fa-arrow-right text-primary me-2"></i>Improved retention and recall</li>
+                                <li class="mb-2"><i class="fas fa-arrow-right text-primary me-2"></i>Efficient exam preparation</li>
+                                <li class="mb-2"><i class="fas fa-arrow-right text-primary me-2"></i>Enhanced critical thinking skills</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <h4><i class="fas fa-target text-warning me-2"></i>Key Principles</h4>
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><i class="fas fa-star text-warning me-2"></i>Clarity and Organization</li>
+                                <li class="mb-2"><i class="fas fa-star text-warning me-2"></i>Active Engagement</li>
+                                <li class="mb-2"><i class="fas fa-star text-warning me-2"></i>Regular Review</li>
+                                <li class="mb-2"><i class="fas fa-star text-warning me-2"></i>Personal Style</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="tip-box">
+                        <h5 class="fw-bold mb-3">Getting Started</h5>
+                        <p class="mb-0">Political Science involves understanding concepts, theories, institutions, and processes. Your notes should capture not just facts, but also relationships between ideas, different perspectives, and real-world applications.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Techniques Tab -->
+            <div class="tab-pane fade" id="techniques">
+                <div class="section-card fade-in">
+                    <div class="text-center mb-4">
+                        <div class="icon-circle success">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h2 class="fw-bold">Note-Making Techniques</h2>
+                    </div>
+
+                    <div class="accordion" id="techniquesAccordion">
+                        <!-- Cornell Method -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#cornell">
+                                    <i class="fas fa-columns me-2"></i>Cornell Note-Taking Method
+                                </button>
+                            </h2>
+                            <div id="cornell" class="accordion-collapse collapse show" data-bs-parent="#techniquesAccordion">
+                                <div class="accordion-body">
+                                    <p><strong>Best for:</strong> Lectures, textbook reading, structured content</p>
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <h6>How it works:</h6>
+                                            <ol>
+                                                <li>Divide your page into three sections</li>
+                                                <li>Use the largest section for detailed notes</li>
+                                                <li>Use the left margin for keywords and questions</li>
+                                                <li>Use the bottom section for summary</li>
+                                            </ol>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="template-box">
+                                                <div style="border: 1px solid #ccc; height: 120px; position: relative;">
+                                                    <div style="position: absolute; left: 0; top: 0; width: 30%; height: 80%; border-right: 1px solid #ccc; background: #f0f8ff; padding: 5px; font-size: 10px;">
+                                                        Keywords<br>Questions
+                                                    </div>
+                                                    <div style="position: absolute; right: 0; top: 0; width: 70%; height: 80%; padding: 5px; font-size: 10px;">
+                                                        Main Notes
+                                                    </div>
+                                                    <div style="position: absolute; bottom: 0; width: 100%; height: 20%; border-top: 1px solid #ccc; background: #f9f9f9; padding: 5px; font-size: 10px;">
+                                                        Summary
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Mind Mapping -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#mindmap">
+                                    <i class="fas fa-project-diagram me-2"></i>Mind Mapping
+                                </button>
+                            </h2>
+                            <div id="mindmap" class="accordion-collapse collapse" data-bs-parent="#techniquesAccordion">
+                                <div class="accordion-body">
+                                    <p><strong>Best for:</strong> Understanding relationships, brainstorming, revision</p>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <h6>Steps:</h6>
+                                            <ol>
+                                                <li>Start with main topic in center</li>
+                                                <li>Add major branches for key concepts</li>
+                                                <li>Add sub-branches for details</li>
+                                                <li>Use colors and symbols</li>
+                                                <li>Keep it visual and memorable</li>
+                                            </ol>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="tip-box">
+                                                <strong>Perfect for Political Science topics like:</strong>
+                                                <ul class="mb-0 mt-2">
+                                                    <li>Constitution and its features</li>
+                                                    <li>Types of government</li>
+                                                    <li>Political ideologies</li>
+                                                    <li>Electoral systems</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Outline Method -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#outline">
+                                    <i class="fas fa-list me-2"></i>Outline Method
+                                </button>
+                            </h2>
+                            <div id="outline" class="accordion-collapse collapse" data-bs-parent="#techniquesAccordion">
+                                <div class="accordion-body">
+                                    <p><strong>Best for:</strong> Hierarchical information, structured content</p>
+                                    <div class="template-box">
+                                        <h6>Structure:</h6>
+                                        <pre style="background: white; border: none; padding: 0;">
+I. Main Topic
+   A. Subtopic
+      1. Detail
+         a. Sub-detail
+         b. Sub-detail
+      2. Detail
+   B. Subtopic
+II. Main Topic
+                                        </pre>
+                                    </div>
+                                    <p><strong>Tip:</strong> Use consistent indentation and numbering systems for clarity.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Charting Method -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#charting">
+                                    <i class="fas fa-table me-2"></i>Charting Method
+                                </button>
+                            </h2>
+                            <div id="charting" class="accordion-collapse collapse" data-bs-parent="#techniquesAccordion">
+                                <div class="accordion-body">
+                                    <p><strong>Best for:</strong> Comparing information, organizing facts systematically</p>
+                                    <div class="example-box">
+                                        <table class="table table-bordered">
+                                            <thead class="table-primary">
+                                                <tr>
+                                                    <th>System</th>
+                                                    <th>Features</th>
+                                                    <th>Examples</th>
+                                                    <th>Advantages</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Presidential</td>
+                                                    <td>Separation of powers</td>
+                                                    <td>USA</td>
+                                                    <td>Stability</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Parliamentary</td>
+                                                    <td>Fusion of powers</td>
+                                                    <td>India, UK</td>
+                                                    <td>Accountability</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Templates Tab -->
+            <div class="tab-pane fade" id="templates">
+                <div class="section-card fade-in">
+                    <div class="text-center mb-4">
+                        <div class="icon-circle warning">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <h2 class="fw-bold">Note Templates</h2>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-6 mb-4">
+                            <div class="technique-card">
+                                <h4><i class="fas fa-university me-2"></i>Chapter Notes Template</h4>
+                                <div class="template-box">
+                                    <strong>Chapter:</strong> _______________<br>
+                                    <strong>Date:</strong> _______________<br><br>
+                                    
+                                    <strong>Key Terms:</strong><br>
+                                    • _______________<br>
+                                    • _______________<br><br>
+                                    
+                                    <strong>Main Concepts:</strong><br>
+                                    1. _______________<br>
+                                    2. _______________<br><br>
+                                    
+                                    <strong>Important Facts:</strong><br>
+                                    • _______________<br>
+                                    • _______________<br><br>
+                                    
+                                    <strong>Questions to Review:</strong><br>
+                                    1. _______________<br>
+                                    2. _______________<br><br>
+                                    
+                                    <strong>Summary:</strong><br>
+                                    _______________
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 mb-4">
+                            <div class="technique-card">
+                                <h4><i class="fas fa-gavel me-2"></i>Institution Analysis Template</h4>
+                                <div class="template-box">
+                                    <strong>Institution:</strong> _______________<br><br>
+                                    
+                                    <strong>Purpose/Role:</strong><br>
+                                    _______________<br><br>
+                                    
+                                    <strong>Structure:</strong><br>
+                                    _______________<br><br>
+                                    
+                                    <strong>Powers & Functions:</strong><br>
+                                    • _______________<br>
+                                    • _______________<br><br>
+                                    
+                                    <strong>Relationship with other institutions:</strong><br>
+                                    _______________<br><br>
+                                    
+                                    <strong>Current Issues/Reforms:</strong><br>
+                                    _______________
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 mb-4">
+                            <div class="technique-card">
+                                <h4><i class="fas fa-balance-scale me-2"></i>Theory/Concept Template</h4>
+                                <div class="template-box">
+                                    <strong>Theory/Concept:</strong> _______________<br>
+                                    <strong>Thinker/Origin:</strong> _______________<br><br>
+                                    
+                                    <strong>Definition:</strong><br>
+                                    _______________<br><br>
+                                    
+                                    <strong>Key Features:</strong><br>
+                                    1. _______________<br>
+                                    2. _______________<br>
+                                    3. _______________<br><br>
+                                    
+                                    <strong>Examples/Applications:</strong><br>
+                                    _______________<br><br>
+                                    
+                                    <strong>Criticisms:</strong><br>
+                                    _______________<br><br>
+                                    
+                                    <strong>Relevance Today:</strong><br>
+                                    _______________
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 mb-4">
+                            <div class="technique-card">
+                                <h4><i class="fas fa-vote-yea me-2"></i>Current Affairs Template</h4>
+                                <div class="template-box">
+                                    <strong>Issue/Event:</strong> _______________<br>
+                                    <strong>Date:</strong> _______________<br><br>
+                                    
+                                    <strong>Background:</strong><br>
+                                    _______________<br><br>
+                                    
+                                    <strong>Key Players:</strong><br>
+                                    • _______________<br>
+                                    • _______________<br><br>
+                                    
+                                    <strong>Political Significance:</strong><br>
+                                    _______________<br><br>
+                                    
+                                    <strong>Different Perspectives:</strong><br>
+                                    _______________<br><br>
+                                    
+                                    <strong>Connection to Syllabus:</strong><br>
+                                    _______________
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Examples Tab -->
+            <div class="tab-pane fade" id="examples">
+                <div class="section-card fade-in">
+                    <div class="text-center mb-4">
+                        <div class="icon-circle success">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h2 class="fw-bold">Sample Notes</h2>
+                    </div>
+
+                    <div class="accordion" id="examplesAccordion">
+                        <!-- Constitution Example -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#constitutionExample">
+                                    <i class="fas fa-scroll me-2"></i>Sample: Indian Constitution (Cornell Method)
+                                </button>
+                            </h2>
+                            <div id="constitutionExample" class="accordion-collapse collapse show" data-bs-parent="#examplesAccordion">
+                                <div class="accordion-body">
+                                    <div class="example-box">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <h6 class="text-primary">Keywords & Questions</h6>
+                                                <ul class="list-unstyled">
+                                                    <li><strong>Key Terms:</strong></li>
+                                                    <li>• Preamble</li>
+                                                    <li>• Fundamental Rights</li>
+                                                    <li>• DPSP</li>
+                                                    <li>• Federal structure</li>
+                                                    <br>
+                                                    <li><strong>Questions:</strong></li>
+                                                    <li>• Why is Indian constitution called a 'bag of borrowings'?</li>
+                                                    <li>• How does it balance unity and diversity?</li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <h6 class="text-success">Main Notes</h6>
+                                                <h6>Making of Indian Constitution</h6>
+                                                <ul>
+                                                    <li><strong>Constituent Assembly:</strong> Formed in 1946, 389 members</li>
+                                                    <li><strong>Key Figures:</strong> Dr. B.R. Ambedkar (Chairman, Drafting Committee), Nehru, Parel, Rajendra Prasad</li>
+                                                    <li><strong>Time taken:</strong> 2 years, 11 months, 18 days</li>
+                                                    <li><strong>Adopted:</strong> November 26, 1949; Enforced: January 26, 1950</li>
+                                                </ul>
+                                                
+                                                <h6>Salient Features</h6>
+                                                <ul>
+                                                    <li><strong>Lengthy & Detailed:</strong> Originally 395 articles, 8 schedules</li>
+                                                    <li><strong>Federal with Unitary bias:</strong> Strong Center during emergencies</li>
+                                                    <li><strong>Parliamentary System:</strong> Borrowed from Britain</li>
+                                                    <li><strong>Fundamental Rights & Duties:</strong> Rights (Art. 12-35), Duties (Art. 51A)</li>
+                                                    <li><strong>Directive Principles:</strong> Non-justiciable guidelines for state policy</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="mt-3 p-3 bg-light rounded">
+                                            <h6 class="text-warning">Summary</h6>
+                                            <p class="mb-0">The Indian Constitution, crafted by the Constituent Assembly over nearly 3 years, represents a unique blend of features borrowed from various constitutions worldwide. It establishes India as a sovereign, socialist, secular, democratic republic with a federal structure that can function unitarily during crises. The balance between rights and duties, along with directive principles, reflects the framers' vision of a just and equitable society.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Democracy Example -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#democracyExample">
+                                    <i class="fas fa-users me-2"></i>Sample: Democracy (Mind Map Style)
+                                </button>
+                            </h2>
+                            <div id="democracyExample" class="accordion-collapse collapse" data-bs-parent="#examplesAccordion">
+                                <div class="accordion-body">
+                                    <div class="example-box">
+                                        <div class="text-center mb-4">
+                                            <h4 class="bg-primary text-white rounded p-2 d-inline-block">DEMOCRACY</h4>
+                                        </div>
+                                        
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="card border-success mb-3">
+                                                    <div class="card-header bg-success text-white">
+                                                        <h6 class="mb-0">Types</h6>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <ul class="mb-0">
+                                                            <li><strong>Direct:</strong> Citizens participate directly (Ancient Athens)</li>
+                                                            <li><strong>Indirect/Representative:</strong> Through elected representatives (Modern democracies)</li>
+                                                            <li><strong>Liberal:</strong> Emphasis on individual freedoms</li>
+                                                            <li><strong>Social:</strong> Focus on equality and welfare</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-md-6">
+                                                <div class="card border-warning mb-3">
+                                                    <div class="card-header bg-warning text-white">
+                                                        <h6 class="mb-0">Features</h6>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <ul class="mb-0">
+                                                            <li>Popular sovereignty</li>
+                                                            <li>Political equality</li>
+                                                            <li>Majority rule with minority rights</li>
+                                                            <li>Regular elections</li>
+                                                            <li>Rule of law</li>
+                                                            <li>Political participation</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-md-6">
+                                                <div class="card border-info mb-3">
+                                                    <div class="card-header bg-info text-white">
+                                                        <h6 class="mb-0">Advantages</h6>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <ul class="mb-0">
+                                                            <li>Protects individual rights</li>
+                                                            <li>Promotes equality</li>
+                                                            <li>Peaceful change of government</li>
+                                                            <li>Accountability of rulers</li>
+                                                            <li>Better decision making</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-md-6">
+                                                <div class="card border-danger mb-3">
+                                                    <div class="card-header bg-danger text-white">
+                                                        <h6 class="mb-0">Challenges</h6>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <ul class="mb-0">
+                                                            <li>Slow decision making</li>
+                                                            <li>Political instability</li>
+                                                            <li>Corruption</li>
+                                                            <li>Tyranny of majority</li>
+                                                            <li>Leaders lack expertise</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Comparison Chart Example -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#comparisonExample">
+                                    <i class="fas fa-chart-bar me-2"></i>Sample: Government Systems (Chart Method)
+                                </button>
+                            </h2>
+                            <div id="comparisonExample" class="accordion-collapse collapse" data-bs-parent="#examplesAccordion">
+                                <div class="accordion-body">
+                                    <div class="example-box">
+                                        <h5 class="text-center mb-4">Comparison of Government Systems</h5>
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered table-hover">
+                                                <thead class="table-primary">
+                                                    <tr>
+                                                        <th>Aspect</th>
+                                                        <th>Parliamentary System</th>
+                                                        <th>Presidential System</th>
+                                                        <th>Semi-Presidential</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td><strong>Executive Head</strong></td>
+                                                        <td>Prime Minister</td>
+                                                        <td>President</td>
+                                                        <td>Both PM & President</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>Separation of Powers</strong></td>
+                                                        <td>Fusion of powers</td>
+                                                        <td>Strict separation</td>
+                                                        <td>Mixed system</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>Tenure</strong></td>
+                                                        <td>Depends on majority support</td>
+                                                        <td>Fixed term</td>
+                                                        <td>President: Fixed, PM: Variable</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>Accountability</strong></td>
+                                                        <td>Collective responsibility</td>
+                                                        <td>Individual responsibility</td>
+                                                        <td>Dual accountability</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>Examples</strong></td>
+                                                        <td>India, UK, Canada</td>
+                                                        <td>USA, Brazil</td>
+                                                        <td>France, Russia</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>Advantages</strong></td>
+                                                        <td>Quick decisions, Flexibility</td>
+                                                        <td>Stability, Clear authority</td>
+                                                        <td>Combines benefits of both</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>Disadvantages</strong></td>
+                                                        <td>Instability, Dominance</td>
+                                                        <td>Rigidity, Deadlock</td>
+                                                        <td>Confusion, Conflict</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Revision Tab -->
+            <div class="tab-pane fade" id="revision">
+                <div class="section-card fade-in">
+                    <div class="text-center mb-4">
+                        <div class="icon-circle primary">
+                            <i class="fas fa-sync-alt"></i>
+                        </div>
+                        <h2 class="fw-bold">Revision Strategies</h2>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <div class="technique-card">
+                                <h4><i class="fas fa-calendar-alt me-2"></i>The 3-2-1 Review Method</h4>
+                                <p>Review your notes at specific intervals:</p>
+                                <ul>
+                                    <li><strong>3 days after:</strong> First review - fill gaps, clarify doubts</li>
+                                    <li><strong>2 weeks after:</strong> Second review - create summaries</li>
+                                    <li><strong>1 month after:</strong> Final review - test yourself</li>
+                                </ul>
+                                <div class="tip-box">
+                                    This method uses spaced repetition to improve long-term retention.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 mb-4">
+                            <div class="technique-card">
+                                <h4><i class="fas fa-question-circle me-2"></i>Active Recall Techniques</h4>
+                                <ul>
+                                    <li><strong>Self-questioning:</strong> Turn headings into questions</li>
+                                    <li><strong>Teach someone else:</strong> Explain concepts to friends/family</li>
+                                    <li><strong>Flashcards:</strong> Key terms and definitions</li>
+                                    <li><strong>Practice tests:</strong> Create mock questions</li>
+                                </ul>
+                                <div class="tip-box">
+                                    Active recall is more effective than passive re-reading.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 mb-4">
+                            <div class="technique-card">
+                                <h4><i class="fas fa-link me-2"></i>Connection Mapping</h4>
+                                <p>Link different topics and concepts:</p>
+                                <ul>
+                                    <li>How does federalism relate to diversity?</li>
+                                    <li>Connection between rights and duties</li>
+                                    <li>Relationship between different institutions</li>
+                                    <li>Current affairs and theoretical concepts</li>
+                                </ul>
+                                <div class="example-box">
+                                    <strong>Example:</strong> Constitution → Federalism → Center-State Relations → Current Issues like GST, Article 370
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 mb-4">
+                            <div class="technique-card">
+                                <h4><i class="fas fa-tasks me-2"></i>Weekly Review Checklist</h4>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="check1">
+                                    <label class="form-check-label" for="check1">
+                                        Review all notes from the week
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="check2">
+                                    <label class="form-check-label" for="check2">
+                                        Create summary of key concepts
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="check3">
+                                    <label class="form-check-label" for="check3">
+                                        Test understanding with questions
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="check4">
+                                    <label class="form-check-label" for="check4">
+                                        Connect with current affairs
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="check5">
+                                    <label class="form-check-label" for="check5">
+                                        Discuss doubts with teacher/peers
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section-card">
+                        <h3><i class="fas fa-lightbulb me-2"></i>Quick Revision Tips</h3>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="tip-box">
+                                    <h6>Color Coding</h6>
+                                    <ul class="mb-0">
+                                        <li>Red: Important dates/facts</li>
+                                        <li>Blue: Key concepts</li>
+                                        <li>Green: Examples</li>
+                                        <li>Yellow: Definitions</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="tip-box">
+                                    <h6>Acronyms & Mnemonics</h6>
+                                    <p class="mb-2">Create memory aids like:</p>
+                                    <ul class="mb-0">
+                                        <li><strong>SPALDJE:</strong> Sovereign, Preamble, Amendment, Longest, Democratic, Justice, Equality</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="tip-box">
+                                    <h6>Digital Tools</h6>
+                                    <ul class="mb-0">
+                                        <li>Notion/OneNote for organization</li>
+                                        <li>Anki for flashcards</li>
+                                        <li>MindMeister for mind maps</li>
+                                        <li>Google Docs for collaboration</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container text-center">
+            <p class="mb-0">
+                <i class="fas fa-graduation-cap me-2"></i>
+                Master Political Science with Effective Note-Taking | Class 11th Study Guide
+            </p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script>
+        // Fade in animation on scroll
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.fade-in');
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+
+        // Progress indicator
+        function updateProgress() {
+            const progressBar = document.querySelector('.progress-indicator');
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight - windowHeight;
+            const scrollTop = window.pageYOffset;
+            const progress = (scrollTop / documentHeight) * 100;
+            
+            progressBar.style.width = progress + '%';
+        }
+
+        // Event listeners
+        window.addEventListener('scroll', () => {
+            animateOnScroll();
+            updateProgress();
+        });
+
+        window.addEventListener('load', animateOnScroll);
+
+        // Interactive checklist
+        document.querySelectorAll('.form-check-input').forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                if (this.checked) {
+                    this.parentElement.style.backgroundColor = '#d1fae5';
+                    this.parentElement.style.transition = 'background-color 0.3s ease';
+                } else {
+                    this.parentElement.style.backgroundColor = 'transparent';
+                }
+            });
+        });
+
+        // Tab change animation
+        document.querySelectorAll('[data-bs-toggle="pill"]').forEach(tab => {
+            tab.addEventListener('shown.bs.tab', function() {
+                const targetPane = document.querySelector(this.getAttribute('href'));
+                const fadeElements = targetPane.querySelectorAll('.fade-in');
+                
+                fadeElements.forEach((element, index) => {
+                    element.classList.remove('visible');
+                    setTimeout(() => {
+                        element.classList.add('visible');
+                    }, index * 100);
+                });
+            });
+        });
+
+        // Add smooth scrolling to anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Initialize tooltips if needed
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl);
+        });
+    </script>
+</body>
+</html>

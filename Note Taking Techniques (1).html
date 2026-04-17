@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Note Taking Techniques - Class 11th</title>
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #ec4899;   /* Pink */
+      --secondary-color: #3b82f6; /* Blue */
+      --accent-color: #facc15;    /* Yellow */
+      --success-color: #22c55e;   /* Green */
+      --danger-color: #f43f5e;    /* Red */
+      --light-bg: #fdf2f8;        /* Light pink background */
+      --card-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--light-bg);
+      color: #334155;
+    }
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      color: var(--primary-color);
+    }
+
+    .hero-section {
+      background: linear-gradient(135deg, var(--primary-color), #be185d);
+      color: white;
+      padding: 4rem 0;
+      text-align: center;
+    }
+
+    .section-card {
+      background: white;
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--card-shadow);
+      border: 1px solid #f3e8ff;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .section-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    }
+
+    .nav-pills .nav-link {
+      border-radius: 25px;
+      margin: 0 0.3rem;
+      padding: 0.75rem 1.5rem;
+      font-weight: 500;
+      color: #fff;
+      background-color: var(--secondary-color);
+      transition: all 0.3s ease;
+    }
+    .nav-pills .nav-link.active {
+      background-color: var(--accent-color);
+      color: #000;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .tip-box {
+      background: linear-gradient(135deg, #fef08a, #fde68a);
+      border: 1px solid var(--accent-color);
+      border-radius:12px;
+      padding:1.5rem;
+      margin:1rem 0;
+      position:relative;
+    }
+    .tip-box::before {
+      content: '💡 Tip';
+      position:absolute;
+      top:-12px;
+      left:16px;
+      background: var(--accent-color);
+      color:#000;
+      padding:4px 12px;
+      border-radius:6px;
+      font-size:0.75rem;
+      font-weight:600;
+    }
+
+    .resource-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+    .resource-card {
+      background: white;
+      border-radius: 16px;
+      padding: 1rem;
+      box-shadow: var(--card-shadow);
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .resource-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+    .resource-icon {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 0.5rem;
+      font-size: 1.5rem;
+      color: white;
+    }
+    .resource-history { background: #f43f5e; }
+    .resource-ip { background: #3b82f6; }
+    .resource-english { background: #ec4899; }
+    .resource-ped { background: #22c55e; }
+    .resource-pol { background: #8b5cf6; }
+
+    footer {
+      background: #1e293b;
+      color: white;
+      padding:1.5rem 0;
+      text-align:center;
+    }
+
+    @media (max-width:768px) {
+      .hero-section {
+        padding:2rem 0;
+      }
+      .nav-pills .nav-link {
+        margin-bottom:0.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Hero -->
+  <section class="hero-section">
+    <h1 class="display-4">Note Taking Techniques</h1>
+    <p>Organize, retain, and master your learning with style ✨</p>
+  </section>
+
+  <!-- Navigation -->
+  <div class="container my-5">
+    <ul class="nav nav-pills justify-content-center mb-4" id="mainTabs">
+      <li class="nav-item">
+        <a class="nav-link active" data-bs-toggle="pill" href="#overview"><i class="fas fa-info-circle me-2"></i>Overview</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-bs-toggle="pill" href="#techniques"><i class="fas fa-lightbulb me-2"></i>Techniques</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-bs-toggle="pill" href="#revision"><i class="fas fa-sync-alt me-2"></i>Revision</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-bs-toggle="pill" href="#resources"><i class="fas fa-book me-2"></i>Resources</a>
+      </li>
+    </ul>
+
+    <div class="tab-content">
+      <!-- Overview -->
+      <div class="tab-pane fade show active" id="overview">
+        <div class="section-card fade-in">
+          <h2>Why Effective Note-Taking?</h2>
+          <ul>
+            <li>Understand complex concepts clearly.</li>
+            <li>Improve memory and recall.</li>
+            <li>Study efficiently for exams.</li>
+            <li>Develop critical thinking skills.</li>
+          </ul>
+          <div class="tip-box mt-3">
+            Well-structured notes can save hours during revision!
+          </div>
+        </div>
+      </div>
+
+      <!-- Techniques -->
+      <div class="tab-pane fade" id="techniques">
+        <div class="section-card fade-in">
+          <h2>Popular Techniques</h2>
+          <ul>
+            <li><strong>Cornell:</strong> Separate notes, cues, and summary.</li>
+            <li><strong>Mind Maps:</strong> Visual diagrams to connect ideas.</li>
+            <li><strong>Outline:</strong> Hierarchical bullet points.</li>
+            <li><strong>Charting:</strong> Compare topics side by side.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Revision -->
+      <div class="tab-pane fade" id="revision">
+        <div class="section-card fade-in">
+          <h2>Revision Strategies</h2>
+          <ul>
+            <li>Review notes within 24 hours.</li>
+            <li>Use color-coded summaries.</li>
+            <li>Teach the topic to someone else.</li>
+            <li>Practice retrieval regularly.</li>
+          </ul>
+          <div class="tip-box mt-3">
+            Spaced repetition boosts retention dramatically.
+          </div>
+        </div>
+      </div>
+
+      <!-- Resources -->
+      <div class="tab-pane fade" id="resources">
+        <div class="section-card fade-in">
+          <h2 class="text-center mb-4">Additional Resources</h2>
+          <div class="resource-grid">
+            <a href="C:\Users\Khushluck Singh\OneDrive\Desktop\History Note-Taking Mastery.html" class="resource-card">
+              <div class="resource-icon resource-history"><i class="fas fa-book"></i></div>
+              <h5>History</h5>
+            </a>
+            <a href="C:\Users\Khushluck Singh\OneDrive\Desktop\Informatics Practices Note-Making Guide.html" class="resource-card">
+              <div class="resource-icon resource-ip"><i class="fas fa-laptop-code"></i></div>
+              <h5>Informatics Practices</h5>
+            </a>
+            <a href="C:\Users\Khushluck Singh\OneDrive\Desktop\Class 11th English Note-Making Guide.html" class="resource-card">
+              <div class="resource-icon resource-english"><i class="fas fa-pen-nib"></i></div>
+              <h5>English</h5>
+            </a>
+            <a href="C:\Users\Khushluck Singh\OneDrive\Desktop\Physical Education Note Making Guide.html" class="resource-card">
+              <div class="resource-icon resource-ped"><i class="fas fa-dumbbell"></i></div>
+              <h5>Physical Education</h5>
+            </a>
+            <a href="C:\Users\Khushluck Singh\OneDrive\Desktop\Political Science Note-Making Guide.html" class="resource-card">
+              <div class="resource-icon resource-pol"><i class="fas fa-balance-scale"></i></div>
+              <h5>Political Science</h5>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p><i class="fas fa-pencil-alt me-2"></i>Make your study journey colorful and fun!</p>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    function animateOnScroll() {
+      document.querySelectorAll('.fade-in').forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        if (top < window.innerHeight - 100) {
+          el.classList.add('visible');
+        }
+      });
+    }
+    window.addEventListener('scroll', animateOnScroll);
+    window.addEventListener('load', animateOnScroll);
+    document.querySelectorAll('[data-bs-toggle="pill"]').forEach(tab => {
+      tab.addEventListener('shown.bs.tab', function() {
+        const target = document.querySelector(this.getAttribute('href'));
+        target.querySelectorAll('.fade-in').forEach((el, i) => {
+          el.classList.remove('visible');
+          setTimeout(() => el.classList.add('visible'), i * 100);
+        });
+      });
+    });
+  </script>
+</body>
+</html>

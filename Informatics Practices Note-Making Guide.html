@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informatics Practices Note-Making Guide - Class 11th</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c5aa0;
+            --secondary-color: #f8f9fa;
+            --accent-color: #17a2b8;
+            --text-dark: #2c3e50;
+            --gradient-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+        }
+
+        .hero-section {
+            background: var(--gradient-bg);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .hero-section h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .hero-section p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .section-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .section-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .technique-card {
+            background: linear-gradient(45deg, #f8f9fa, #e9ecef);
+            border-left: 5px solid var(--primary-color);
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 10px;
+        }
+
+        .code-snippet {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+        }
+
+        .note-template {
+            background: #fff3cd;
+            border: 2px dashed #ffc107;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+        }
+
+        .interactive-btn {
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .interactive-btn:hover {
+            background: #138496;
+            transform: scale(1.05);
+        }
+
+        .diagram-container {
+            background: #f8f9fa;
+            border: 2px solid #dee2e6;
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            margin: 1rem 0;
+        }
+
+        .topic-nav {
+            position: sticky;
+            top: 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 1.5rem;
+        }
+
+        .nav-link {
+            color: var(--text-dark);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .highlight-box {
+            background: linear-gradient(45deg, #e3f2fd, #bbdefb);
+            border-left: 5px solid #2196f3;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+        }
+
+        .checklist {
+            list-style: none;
+            padding: 0;
+        }
+
+        .checklist li {
+            padding: 0.5rem 0;
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .checklist li:before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: #28a745;
+            position: absolute;
+            left: 0;
+        }
+
+        .sample-note {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            font-family: 'Times New Roman', serif;
+        }
+
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 2rem;
+            }
+            
+            .section-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <h1><i class="fas fa-book-open"></i> Informatics Practices Note-Making Guide</h1>
+            <p>Master your Class 11th IP concepts with effective note-taking strategies</p>
+            <button class="interactive-btn mt-3" onclick="scrollToSection('getting-started')">
+                Get Started <i class="fas fa-arrow-down"></i>
+            </button>
+        </div>
+    </section>
+
+    <div class="container-fluid mt-4">
+        <div class="row">
+            <!-- Navigation Sidebar -->
+            <div class="col-lg-3">
+                <div class="topic-nav">
+                    <h5><i class="fas fa-list"></i> Quick Navigation</h5>
+                    <nav class="nav flex-column">
+                        <a class="nav-link" href="#getting-started">Getting Started</a>
+                        <a class="nav-link" href="#note-techniques">Note Techniques</a>
+                        <a class="nav-link" href="#topic-templates">Topic Templates</a>
+                        <a class="nav-link" href="#code-examples">Code Examples</a>
+                        <a class="nav-link" href="#sample-notes">Sample Notes</a>
+                        <a class="nav-link" href="#revision-strategies">Revision Tips</a>
+                        <a class="nav-link" href="#downloads">Downloads</a>
+                    </nav>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-lg-9">
+                <!-- Getting Started Section -->
+                <div id="getting-started" class="section-card">
+                    <h2><i class="fas fa-play-circle text-primary"></i> Getting Started with IP Notes</h2>
+                    <p class="lead">Effective note-making is crucial for mastering Informatics Practices. Here's your complete guide!</p>
+                    
+                    <div class="highlight-box">
+                        <h5><i class="fas fa-lightbulb"></i> Why Good Notes Matter in IP?</h5>
+                        <ul>
+                            <li>Complex programming concepts need visual representation</li>
+                            <li>Code snippets require proper formatting and explanation</li>
+                            <li>Theoretical concepts need practical examples</li>
+                            <li>Regular revision is essential for retention</li>
+                        </ul>
+                    </div>
+
+                    <h4>Essential Tools for IP Note-Making</h4>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="technique-card">
+                                <h6><i class="fas fa-laptop"></i> Digital Tools</h6>
+                                <ul>
+                                    <li>Notion/Obsidian for structured notes</li>
+                                    <li>Google Docs for collaboration</li>
+                                    <li>GitHub for code storage</li>
+                                    <li>Draw.io for diagrams</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="technique-card">
+                                <h6><i class="fas fa-pen"></i> Traditional Tools</h6>
+                                <ul>
+                                    <li>Notebooks with graph pages</li>
+                                    <li>Colored pens for syntax highlighting</li>
+                                    <li>Sticky notes for quick references</li>
+                                    <li>Index cards for formulas</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Note Techniques Section -->
+                <div id="note-techniques" class="section-card">
+                    <h2><i class="fas fa-tools text-primary"></i> Effective Note-Taking Techniques</h2>
+                    
+                    <div class="technique-card">
+                        <h5>1. Cornell Note-Taking System for IP</h5>
+                        <p>Divide your page into three sections: Notes, Cues, and Summary</p>
+                        <div class="note-template">
+                            <div class="row">
+                                <div class="col-8">
+                                    <strong>Notes Section (70%)</strong><br>
+                                    • Main content, code snippets<br>
+                                    • Detailed explanations<br>
+                                    • Examples and outputs
+                                </div>
+                                <div class="col-4">
+                                    <strong>Cues Section (30%)</strong><br>
+                                    • Keywords<br>
+                                    • Questions<br>
+                                    • Important formulas
+                                </div>
+                            </div>
+                            <hr>
+                            <strong>Summary Section</strong><br>
+                            Key takeaways and review points
+                        </div>
+                    </div>
+
+                    <div class="technique-card">
+                        <h5>2. Mind Mapping for Concepts</h5>
+                        <p>Perfect for understanding relationships between different IP topics</p>
+                        <div class="diagram-container">
+                            <svg width="300" height="200" viewBox="0 0 300 200">
+                                <circle cx="150" cy="100" r="30" fill="#2c5aa0" />
+                                <text x="150" y="105" text-anchor="middle" fill="white" font-size="12">Python</text>
+                                
+                                <circle cx="50" cy="50" r="20" fill="#17a2b8" />
+                                <text x="50" y="55" text-anchor="middle" fill="white" font-size="10">Lists</text>
+                                <line x1="120" y1="100" x2="70" y2="50" stroke="#666" stroke-width="2"/>
+                                
+                                <circle cx="250" cy="50" r="20" fill="#17a2b8" />
+                                <text x="250" y="55" text-anchor="middle" fill="white" font-size="10">Functions</text>
+                                <line x1="180" y1="100" x2="230" y2="50" stroke="#666" stroke-width="2"/>
+                                
+                                <circle cx="50" cy="150" r="20" fill="#17a2b8" />
+                                <text x="50" y="155" text-anchor="middle" fill="white" font-size="10">Loops</text>
+                                <line x1="120" y1="100" x2="70" y2="150" stroke="#666" stroke-width="2"/>
+                                
+                                <circle cx="250" cy="150" r="20" fill="#17a2b8" />
+                                <text x="250" y="155" text-anchor="middle" fill="white" font-size="10">Files</text>
+                                <line x1="180" y1="100" x2="230" y2="150" stroke="#666" stroke-width="2"/>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div class="technique-card">
+                        <h5>3. Code Documentation Method</h5>
+                        <p>Essential for programming topics in IP</p>
+                        <ul class="checklist">
+                            <li>Write the problem statement first</li>
+                            <li>Include step-by-step algorithm</li>
+                            <li>Add properly commented code</li>
+                            <li>Show sample input/output</li>
+                            <li>Note common errors and solutions</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Topic Templates Section -->
+                <div id="topic-templates" class="section-card">
+                    <h2><i class="fas fa-clipboard-list text-primary"></i> Topic-Specific Templates</h2>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="technique-card">
+                                <h5>Programming Concepts Template</h5>
+                                <div class="note-template">
+                                    <strong>Topic:</strong> [Concept Name]<br>
+                                    <strong>Definition:</strong> [Clear explanation]<br>
+                                    <strong>Syntax:</strong> [Code structure]<br>
+                                    <strong>Example:</strong> [Working code]<br>
+                                    <strong>Output:</strong> [Expected result]<br>
+                                    <strong>Common Errors:</strong> [Typical mistakes]<br>
+                                    <strong>Applications:</strong> [Real-world uses]
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="technique-card">
+                                <h5>Database Concepts Template</h5>
+                                <div class="note-template">
+                                    <strong>Concept:</strong> [Database topic]<br>
+                                    <strong>Purpose:</strong> [Why it's used]<br>
+                                    <strong>SQL Syntax:</strong> [Command structure]<br>
+                                    <strong>Example Query:</strong> [Sample code]<br>
+                                    <strong>Result:</strong> [Query output]<br>
+                                    <strong>Related Commands:</strong> [Similar operations]
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="technique-card">
+                        <h5>Network & Internet Template</h5>
+                        <div class="note-template">
+                            <strong>Topic:</strong> [Network concept]<br>
+                            <strong>Definition:</strong> [Technical explanation]<br>
+                            <strong>Components:</strong> [Parts involved]<br>
+                            <strong>Working:</strong> [How it functions]<br>
+                            <strong>Advantages:</strong> [Benefits]<br>
+                            <strong>Disadvantages:</strong> [Limitations]<br>
+                            <strong>Examples:</strong> [Real-world applications]
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Code Examples Section -->
+                <div id="code-examples" class="section-card">
+                    <h2><i class="fas fa-code text-primary"></i> Code Examples & Formatting</h2>
+                    
+                    <h4>How to Format Code in Your Notes</h4>
+                    <div class="technique-card">
+                        <h6>Example: List Operations in Python</h6>
+                        <div class="code-snippet">
+<pre><code># Problem: Find maximum element in a list
+# Algorithm:
+# 1. Initialize first element as max
+# 2. Compare with each element
+# 3. Update max if larger element found
+
+def find_max(numbers):
+    """
+    Function to find maximum element in a list
+    Input: list of numbers
+    Output: maximum number
+    """
+    if not numbers:  # Check for empty list
+        return None
+    
+    max_num = numbers[0]  # Initialize with first element
+    
+    for num in numbers[1:]:  # Iterate from second element
+        if num > max_num:
+            max_num = num
+    
+    return max_num
+
+# Example usage:
+my_list = [23, 45, 12, 67, 34, 89, 15]
+result = find_max(my_list)
+print(f"Maximum number: {result}")
+
+# Output: Maximum number: 89</code></pre>
+                        </div>
+                        
+                        <div class="highlight-box">
+                            <strong>Note-taking Tips for Code:</strong>
+                            <ul>
+                                <li>Always include the problem statement</li>
+                                <li>Write step-by-step algorithm before code</li>
+                                <li>Add meaningful comments in code</li>
+                                <li>Show sample input and expected output</li>
+                                <li>Highlight important syntax with colors</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="technique-card">
+                        <h6>Database Query Example</h6>
+                        <div class="code-snippet">
+<pre><code>-- Topic: SQL SELECT with WHERE clause
+-- Purpose: Filter records based on conditions
+
+-- Table: Students
+-- Columns: student_id, name, age, grade, city
+
+-- Query: Find all students with age > 16 and grade = 'A'
+SELECT student_id, name, age, grade, city
+FROM Students
+WHERE age > 16 AND grade = 'A'
+ORDER BY name;
+
+-- Sample Output:
+-- student_id | name    | age | grade | city
+-- 101        | Alice   | 17  | A     | Delhi
+-- 103        | Charlie | 18  | A     | Mumbai</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sample Notes Section -->
+                <div id="sample-notes" class="section-card">
+                    <h2><i class="fas fa-file-alt text-primary"></i> Sample Note Structure</h2>
+                    
+                    <div class="sample-note">
+                        <h4 style="color: #2c5aa0; border-bottom: 2px solid #2c5aa0; padding-bottom: 0.5rem;">
+                            Chapter 5: Lists in Python
+                        </h4>
+                        
+                        <div style="margin: 1rem 0;">
+                            <strong>Date:</strong> [Date] &nbsp;&nbsp;&nbsp; <strong>Class:</strong> 11th IP &nbsp;&nbsp;&nbsp; <strong>Unit:</strong> Programming
+                        </div>
+
+                        <div style="background: #e3f2fd; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                            <strong>Learning Objectives:</strong>
+                            <ul>
+                                <li>Understand what lists are and why they're useful</li>
+                                <li>Learn different ways to create and manipulate lists</li>
+                                <li>Master common list methods and operations</li>
+                            </ul>
+                        </div>
+
+                        <h5 style="color: #1976d2;">1. Introduction to Lists</h5>
+                        <p><strong>Definition:</strong> A list is an ordered collection of items that can store multiple values in a single variable.</p>
+                        
+                        <p><strong>Key Features:</strong></p>
+                        <ul>
+                            <li>Ordered (maintains sequence)</li>
+                            <li>Mutable (can be changed)</li>
+                            <li>Allows duplicates</li>
+                            <li>Can store different data types</li>
+                        </ul>
+
+                        <h5 style="color: #1976d2;">2. Creating Lists</h5>
+                        <div style="background: #f5f5f5; padding: 1rem; border-left: 4px solid #2c5aa0; font-family: monospace;">
+# Different ways to create lists<br>
+empty_list = []<br>
+numbers = [1, 2, 3, 4, 5]<br>
+mixed_list = [1, "hello", 3.14, True]<br>
+using_constructor = list([1, 2, 3])
+                        </div>
+
+                        <h5 style="color: #1976d2;">3. Common List Methods</h5>
+                        <table class="table table-bordered" style="margin: 1rem 0;">
+                            <thead style="background: #2c5aa0; color: white;">
+                                <tr>
+                                    <th>Method</th>
+                                    <th>Purpose</th>
+                                    <th>Example</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>append()</td>
+                                    <td>Add item to end</td>
+                                    <td>list.append(item)</td>
+                                </tr>
+                                <tr>
+                                    <td>insert()</td>
+                                    <td>Add item at position</td>
+                                    <td>list.insert(index, item)</td>
+                                </tr>
+                                <tr>
+                                    <td>remove()</td>
+                                    <td>Remove first occurrence</td>
+                                    <td>list.remove(item)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div style="background: #fff3cd; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                            <strong><i class="fas fa-exclamation-triangle"></i> Important Notes:</strong>
+                            <ul>
+                                <li>List indexing starts from 0</li>
+                                <li>Negative indexing starts from -1 (last element)</li>
+                                <li>Lists are mutable, so original list changes with methods</li>
+                            </ul>
+                        </div>
+
+                        <h5 style="color: #1976d2;">4. Practice Questions</h5>
+                        <ol>
+                            <li>Create a list of your favorite subjects</li>
+                            <li>Add a new subject to the list</li>
+                            <li>Remove a subject from the list</li>
+                            <li>Find the length of the list</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Revision Strategies Section -->
+                <div id="revision-strategies" class="section-card">
+                    <h2><i class="fas fa-brain text-primary"></i> Revision Strategies</h2>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="technique-card">
+                                <h5><i class="fas fa-calendar-alt"></i> The 3-2-1 Review Method</h5>
+                                <ul>
+                                    <li><strong>3 days later:</strong> Quick review of notes</li>
+                                    <li><strong>2 weeks later:</strong> Practice coding problems</li>
+                                    <li><strong>1 month later:</strong> Complete topic revision</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="technique-card">
+                                <h5><i class="fas fa-question-circle"></i> Active Recall Techniques</h5>
+                                <ul>
+                                    <li>Cover notes and explain concepts aloud</li>
+                                    <li>Write code from memory</li>
+                                    <li>Create your own practice questions</li>
+                                    <li>Teach concepts to classmates</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="technique-card">
+                        <h5><i class="fas fa-chart-line"></i> Weekly Review Schedule</h5>
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Day</th>
+                                        <th>Activity</th>
+                                        <th>Duration</th>
+                                        <th>Focus</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Monday</td>
+                                        <td>Review Previous Week</td>
+                                        <td>30 mins</td>
+                                        <td>Concept clarity</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Wednesday</td>
+                                        <td>Practice Coding</td>
+                                        <td>45 mins</td>
+                                        <td>Programming skills</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Friday</td>
+                                        <td>Theory Review</td>
+                                        <td>30 mins</td>
+                                        <td>Database & Networks</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Sunday</td>
+                                        <td>Complete Revision</td>
+                                        <td>60 mins</td>
+                                        <td>All topics</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="highlight-box">
+                        <h5><i class="fas fa-lightbulb"></i> Quick Revision Tips</h5>
+                        <ul class="checklist">
+                            <li>Create flashcards for syntax and formulas</li>
+                            <li>Maintain a error-solution log</li>
+                            <li>Practice past year questions regularly</li>
+                            <li>Join study groups for discussion</li>
+                            <li>Use online coding platforms for practice</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Downloads Section -->
+                <div id="downloads" class="section-card">
+                    <h2><i class="fas fa-download text-primary"></i> Downloadable Resources</h2>
+                    
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="text-center p-3 border rounded">
+                                <i class="fas fa-file-pdf fa-3x text-danger mb-3"></i>
+                                <h5>Note Templates</h5>
+                                <p>Ready-to-use templates for different IP topics</p>
+                                <button class="interactive-btn" onclick="generateTemplate('notes')">
+                                    <i class="fas fa-download"></i> Download
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="text-center p-3 border rounded">
+                                <i class="fas fa-code fa-3x text-success mb-3"></i>
+                                <h5>Code Snippets</h5>
+                                <p>Essential Python code examples and patterns</p>
+                                <button class="interactive-btn" onclick="generateTemplate('code')">
+                                    <i class="fas fa-download"></i> Download
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="text-center p-3 border rounded">
+                                <i class="fas fa-chart-bar fa-3x text-info mb-3"></i>
+                                <h5>Revision Schedule</h5>
+                                <p>Customizable study schedule template</p>
+                                <button class="interactive-btn" onclick="generateTemplate('schedule')">
+                                    <i class="fas fa-download"></i> Download
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 p-3" style="background: #e8f5e8; border-radius: 10px;">
+                        <h5><i class="fas fa-star"></i> Pro Tips for Success</h5>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="checklist">
+                                    <li>Write notes immediately after class</li>
+                                    <li>Use consistent formatting throughout</li>
+                                    <li>Include page numbers and dates</li>
+                                    <li>Cross-reference related topics</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="checklist">
+                                    <li>Keep a separate error log book</li>
+                                    <li>Practice coding daily for 30 minutes</li>
+                                    <li>Review notes before next class</li>
+                                    <li>Create summary sheets for exams</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-3 mt-5">
+        <div class="container">
+            <p>&copy; 2024 IP Note-Making Guide. Designed for Class 11th Students.</p>
+            <p><i class="fas fa-heart text-danger"></i> Created with love for better learning!</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    
+    <script>
+        // Smooth scrolling function
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // Template generation function
+        function generateTemplate(type) {
+            let content = '';
+            let filename = '';
+            
+            switch(type) {
+                case 'notes':
+                    filename = 'IP_Note_Template.txt';
+                    content = `INFORMATICS PRACTICES - NOTE TEMPLATE
+========================================
+
+Date: _______________
+Chapter: _______________
+Topic: _______________
+
+LEARNING OBJECTIVES:
+□ _______________
+□ _______________
+□ _______________
+
+MAIN CONTENT:
+1. Definition/Introduction:
+   _______________
+
+2. Key Concepts:
+   • _______________
+   • _______________
+
+3. Syntax/Formula:
+   _______________
+
+4. Example:
+   _______________
+
+5. Output/Result:
+   _______________
+
+IMPORTANT NOTES:
+• _______________
+• _______________
+
+COMMON ERRORS:
+• _______________
+• _______________
+
+PRACTICE QUESTIONS:
+1. _______________
+2. _______________
+
+SUMMARY:
+_______________
+
+NEXT CLASS PREPARATION:
+_______________`;
+                    break;
+                    
+                case 'code':
+                    filename = 'Python_Code_Template.py';
+                    content = `# PYTHON CODE TEMPLATE FOR IP CLASS 11
+# =====================================
+
+"""
+Problem Statement: [Write the problem here]
+Algorithm:
+1. [Step 1]
+2. [Step 2]
+3. [Step 3]
+"""
+
+# Import necessary modules
+# import module_name
+
+def function_name(parameters):
+    """
+    Function description
+    Input: [parameter types]
+    Output: [return type]
+    """
+    # Function body
+    pass
+
+# Main program
+if __name__ == "__main__":
+    # Test cases
+    # Input
+    
+    # Function call
+    
+    # Output
+    
+    # Sample run:
+    # Input: 
+    # Output: 
+
+# Common errors and solutions:
+# 1. Error: [description]
+#    Solution: [fix]
+# 2. Error: [description]
+#    Solution: [fix]`;
+                    break;
+                    
+                case 'schedule':
+                    filename = 'Revision_Schedule.txt';
+                    content = `INFORMATICS PRACTICES REVISION SCHEDULE
+=======================================
+
+WEEKLY SCHEDULE:
+Monday    - Review previous week concepts (30 mins)
+Tuesday   - New topic learning (45 mins)
+Wednesday - Coding practice (45 mins)
+Thursday  - Theory revision (30 mins)
+Friday    - Problem solving (45 mins)
+Saturday  - Project work (60 mins)
+Sunday    - Complete revision + rest (60 mins)
+
+MONTHLY TARGETS:
+Week 1: Python Basics
+Week 2: Data Structures (Lists, Tuples, Dictionaries)
+Week 3: File Handling
+Week 4: Database Concepts
+
+EXAM PREPARATION (Last 2 weeks):
+□ Complete syllabus revision
+□ Solve previous year papers
+□ Practice coding problems
+□ Group study sessions
+
+DAILY CHECKLIST:
+□ Review class notes
+□ Practice 2-3 coding problems
+□ Note down doubts
+□ Prepare for next class
+
+REVISION TECHNIQUES:
+1. Active Recall - Test yourself without looking at notes
+2. Spaced Repetition - Review at increasing intervals
+3. Practice Coding - Write code from memory
+4. Teach Others - Explain concepts to classmates
+
+IMPORTANT DATES:
+Unit Test 1: ___________
+Unit Test 2: ___________
+Final Exam: ___________`;
+                    break;
+            }
+            
+            // Create and download file
+            const blob = new Blob([content], { type: 'text/plain' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+            
+            // Show success message
+            alert(`${filename} downloaded successfully! Check your downloads folder.`);
+        }
+
+        // Update active navigation
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('.section-card');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (window.pageYOffset >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Add click handlers to navigation links
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                scrollToSection(targetId);
+            });
+        });
+
+        // Interactive elements
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add hover effects to cards
+            const cards = document.querySelectorAll('.technique-card, .section-card');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-2px)';
+                    this.style.transition = 'all 0.3s ease';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
